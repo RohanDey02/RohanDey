@@ -1,2 +1,2 @@
 # PersonalWebsite
-This is a personal website about me.
+This is a personal informative website that tells people about Rohan Dey.
