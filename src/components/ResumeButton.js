@@ -22,14 +22,14 @@ const ButtonStyle = styled.div`
     }
 `;
 
-export default function Button({
+export default function ResumeButton({
     btnText = 'test',
     btnLink = 'test',
     outline = false,
 }) {
     return (
         <ButtonStyle outline={outline} className="button-wrapper">
-        <Link className="button" to={btnLink}>
+        <Link className="button" to={btnLink} target="blank">
             {btnText}
         </Link>
         </ButtonStyle>

@@ -103,60 +103,60 @@ export default function NavMenu() {
             </div>
     
             <ul className={!showNav ? 'navItems hide-item': 'navItems'}>
-            <div
-                className="closeNavIcon"
-                onClick={() => setShowNav(!showNav)}
-                role="button"
-                onKeyDown={() => setShowNav(!showNav)}
-                tabIndex={0}
-            >
-                <MdClose />
-            </div>
-            <li>
-                <NavLink
-                to="/RohanDey"
-                exact
-                onClick={() => setShowNav(!showNav)}
-                role="button"
-                onKeyDown={() => setShowNav(!showNav)}
-                tabIndex={0}
+                <div
+                    className="closeNavIcon"
+                    onClick={() => setShowNav(!showNav)}
+                    role="button"
+                    onKeyDown={() => setShowNav(!showNav)}
+                    tabIndex={0}
                 >
-                Home
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                to="/RohanDey/about"
-                onClick={() => setShowNav(!showNav)}
-                role="button"
-                onKeyDown={() => setShowNav(!showNav)}
-                tabIndex={0}
-                >
-                About
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                to="/RohanDey/projects"
-                onClick={() => setShowNav(!showNav)}
-                role="button"
-                onKeyDown={() => setShowNav(!showNav)}
-                tabIndex={0}
-                >
-                Projects
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                to="/RohanDey/contact"
-                onClick={() => setShowNav(!showNav)}
-                role="button"
-                onKeyDown={() => setShowNav(!showNav)}
-                tabIndex={0}
-                >
-                Contact
-                </NavLink>
-            </li>
+                    <MdClose />
+                </div>
+                <li>
+                    <NavLink
+                        to="/RohanDey"
+                        exact
+                        onClick={() => setShowNav(!showNav)}
+                        role="button"
+                        onKeyDown={() => setShowNav(!showNav)}
+                        tabIndex={0}
+                        >
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/RohanDey/about"
+                        onClick={() => setShowNav(!showNav)}
+                        role="button"
+                        onKeyDown={() => setShowNav(!showNav)}
+                        tabIndex={0}
+                        >
+                        About
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/RohanDey/projects"
+                        onClick={() => setShowNav(!showNav)}
+                        role="button"
+                        onKeyDown={() => setShowNav(!showNav)}
+                        tabIndex={0}
+                        >
+                        Projects
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/RohanDey/contact"
+                        onClick={() => setShowNav(!showNav)}
+                        role="button"
+                        onKeyDown={() => setShowNav(!showNav)}
+                        tabIndex={0}
+                        >
+                        Contact
+                    </NavLink>
+                </li>
             </ul>
         </NavStyles>
     );
