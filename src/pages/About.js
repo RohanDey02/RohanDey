@@ -21,7 +21,7 @@ const AboutPageStyles = styled.div`
 	.right {
 		flex: 2;
 	}
-	.about__subheading {
+	.aboutSubheading {
 		font-size: 2.2rem;
 		margin-bottom: 2rem;
 		span {
@@ -30,11 +30,11 @@ const AboutPageStyles = styled.div`
 		border-radius: 8px;
 		}
 	}
-	.about__heading {
+	.aboutHeading {
 		font-size: 3.6rem;
 		margin-bottom: 3rem;
 	}
-	.about__info {
+	.aboutInfo {
 		margin-bottom: 4rem;
 		.para {
 		max-width: 100%;
@@ -45,30 +45,30 @@ const AboutPageStyles = styled.div`
 		border: 2px solid var(--gray-1);
 		}
 	}
-	.about__info__items {
+	.aboutInfoItems {
 		margin-top: 15rem;
 	}
-	.about__info__item {
+	.aboutInfoItem {
 		margin-bottom: 10rem;
 	}
-	.about__info__heading {
+	.aboutInfoHeading {
 		font-size: 3.6rem;
 		text-transform: uppercase;
 	}
 	@media only screen and (max-width: 768px) {
 		padding: 10rem 0;
 		.top-section {
-		flex-direction: column;
-		gap: 5rem;
+			flex-direction: column;
+			gap: 5rem;
 		}
-		.about__subheading {
-		font-size: 1.8rem;
+		.aboutSubheading {
+			font-size: 1.8rem;
 		}
-		.about__heading {
-		font-size: 2.8rem;
+		.aboutHeading {
+			font-size: 2.8rem;
 		}
-		.about__info__heading {
-		font-size: 3rem;
+		.aboutInfoHeading {
+			font-size: 3rem;
 		}
 	}
 `;
@@ -80,11 +80,11 @@ export default function About() {
 				<div className="container">
 					<div className="top-section">
 						<div className="left">
-							<p className="about__subheading">
+							<p className="aboutSubheading">
 								Hi, I am <span>Rohan Dey</span>
 							</p>
-							<h2 className="about__heading">A 2nd-Year Computer Science Student at the University of Toronto</h2>
-							<div className="about__info">
+							<h2 className="aboutHeading">A 2nd-Year Computer Science Student at the University of Toronto</h2>
+							<div className="aboutInfo">
 								<PText>
 									I started coding when I was in the 10th grade. Coding is something I am very passionate about because I love
 									how my actions can directly translate to cool designs and features.
@@ -100,17 +100,17 @@ export default function About() {
 							<img src={AboutImg} alt="Rohan Dey" />
 						</div>
 					</div>
-					<div className="about__info__items">
-						<div className="about__info__item">
-							<h1 className="about__info__heading">Education</h1>
+					<div className="aboutInfoItems">
+						<div className="aboutInfoItem">
+							<h1 className="aboutInfoHeading">Education</h1>
 
 							<AboutInfoItem
 								title="University"
 								items={['University Of Toronto']}
 							/>
 						</div>
-						<div className="about__info__item">
-							<h1 className="about__info__heading">My Skills</h1>
+						<div className="aboutInfoItem">
+							<h1 className="aboutInfoHeading">My Skills</h1>
 
 							<AboutInfoItem
 								title="Languages"
@@ -125,16 +125,16 @@ export default function About() {
 								items={['Photoshop', 'Figma']}
 							/>
 						</div>
-						<div className="about__info__item">
-							<h1 className="about__info__heading">Experiences</h1>
+						<div className="aboutInfoItem">
+							<h1 className="aboutInfoHeading">Experiences</h1>
 
 							<AboutInfoItem
 								title="2019-2020"
 								items={['LCPP Cultural Exchange Program']}
 							/>
 						</div>
-						<div className="about__info__item">
-							<h1 className="about__info__heading">Certifications</h1>
+						<div className="aboutInfoItem">
+							<h1 className="aboutInfoHeading">Awards & Certifications</h1>
 
 							<AboutInfoItem
 								title="2021"

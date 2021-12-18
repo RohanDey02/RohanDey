@@ -17,7 +17,7 @@ const ButtonStyle = styled.div`
     }
     @media only screen and (max-width: 768px) {
         .button {
-        font-size: 1.8rem;
+            font-size: 1.8rem;
         }
     }
 `;
@@ -29,9 +29,9 @@ export default function ResumeButton({
 }) {
     return (
         <ButtonStyle outline={outline} className="button-wrapper">
-        <Link className="button" to={btnLink} target="blank">
-            {btnText}
-        </Link>
+            <Link className="button" to={btnLink} target="blank">
+                {btnText}
+            </Link>
         </ButtonStyle>
     );
 }

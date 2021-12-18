@@ -11,15 +11,15 @@ const FooterStyle = styled.div`
         display: flex;
         gap: 3rem;
     }
-    .footer__col1 {
+    .footerCol1 {
         flex: 2;
     }
-    .footer__col2,
-    .footer__col3,
-    .footer__col4 {
+    .footerCol2,
+    .footerCol3,
+    .footerCol4 {
         flex: 1;
     }
-    .footer__col1__title {
+    .footerCol1Title {
         font-size: 3.5rem;
         margin-bottom: 1rem;
     }
@@ -29,26 +29,26 @@ const FooterStyle = styled.div`
         padding: 1rem 0;
         margin-top: 5rem;
         .para {
-        margin-left: 0;
+            margin-left: 0;
         }
     }
     @media only screen and (max-width: 768px) {
         .container {
-        flex-direction: column;
-        gap: 0rem;
-        & > div {
-            margin-top: 5rem;
-        }
-        }
-        .footer__col1 .para {
-        max-width: 100%;
-        }
-        .copyright {
-        .container {
-            div {
-            margin-top: 0;
+            flex-direction: column;
+            gap: 0rem;
+            & > div {
+                margin-top: 5rem;
             }
         }
+        .footerCol1 .para {
+            max-width: 100%;
+        }
+        .copyright {
+            .container {
+                div {
+                    margin-top: 0;
+                }
+            }
         }
     }
 `;
@@ -57,13 +57,13 @@ export default function Footer() {
     return (
         <FooterStyle>
             <div className="container">
-                <div className="footer__col1">
-                    <h1 className="footer__col1__title">Rohan Dey</h1>
+                <div className="footerCol1">
+                    <h1 className="footerCol1Title">Rohan Dey</h1>
                     <PText>
                         A 2nd-Year Undergraduate Student at the University of Toronto doing a Specialist in Computer Science, Software Engineering Stream.
                     </PText>
                 </div>
-                <div className="footer__col2">
+                <div className="footerCol2">
                     <FooterCol
                         heading="Important Links"
                         links={[
@@ -90,7 +90,7 @@ export default function Footer() {
                         ]}
                     />
                 </div>
-                <div className="footer__col3">
+                <div className="footerCol3">
                     <FooterCol
                         heading="Contact Info"
                         links={[
@@ -101,7 +101,7 @@ export default function Footer() {
                         ]}
                     />
                 </div>
-                <div className="footer__col4">
+                <div className="footerCol4">
                     <FooterCol
                         heading="Socials"
                         links={[

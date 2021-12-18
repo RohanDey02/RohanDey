@@ -28,11 +28,11 @@ const AboutItemStyles = styled.div`
         align-items: flex-start;
         gap: 1rem;
         .items {
-        position: initial;
-        gap: 1rem;
+            position: initial;
+            gap: 1rem;
         }
         .title {
-        font-size: 2rem;
+            font-size: 2rem;
         }
     }
 `;

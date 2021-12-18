@@ -16,45 +16,45 @@ const HeroStyles = styled.div`
         justify-content: center;
         position: relative;
     }
-    .hero__heading {
+    .heroHeading {
         font-size: 2rem;
         margin-bottom: -4rem;
         position: relative;
         span {
-        display: inline-block;
-        width: 100%;
+            display: inline-block;
+            width: 100%;
         }
-        .hero__name {
-        font-family: 'Montserrat SemiBold';
-        font-size: 7rem;
-        color: var(--white);
+        .heroName {
+            font-family: 'Montserrat SemiBold';
+            font-size: 7rem;
+            color: var(--white);
         }
     }
-    .hero__img {
+    .heroImg {
         max-width: 900px;
         width: 100%;
         height: 600px;
         margin: 0 auto;
         border: 2px solid var(--gray-1);
     }
-    .hero__info {
+    .heroInfo {
         margin-top: -18rem;
     }
     @media only screen and (max-width: 768px) {
         .hero {
             min-height: 750px;
             }
-            .hero__heading {
+            .heroHeading {
                 font-size: 1.4rem;
                 margin-bottom: -3rem;
-                .hero__name {
+                .heroName {
                     font-size: 4.5rem;
                 }
             }
-            .hero__img {
+            .heroImg {
                 height: 300px;
             }
-            .hero__info {
+            .heroInfo {
                 margin-top: 3rem;
             }
         }
@@ -66,14 +66,14 @@ export default function HeroSection() {
         <HeroStyles>
             <div className="hero">
                 <div className="container">
-                    <h1 className="hero__heading">
+                    <h1 className="heroHeading">
                         <span>I am</span>
-                        <span className="hero__name">Rohan Dey</span>
+                        <span className="heroName">Rohan Dey</span>
                     </h1>
-                    <div className="hero__img">
+                    <div className="heroImg">
                         <img src={HeroImg} alt="" />
                     </div>
-                    <div className="hero__info">
+                    <div className="heroInfo">
                         <PText>
                             I am 2nd-Year Undergraduate Student at the University of Toronto doing a Specialist in Computer Science, Software Engineering Stream.
                         </PText>
