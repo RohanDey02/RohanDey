@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
     }
-    :root{
+    :root {
         --dark-bg: #262626;
         --gray-1: #BCB4B4;
         --deep-dark: #1E1E1E;
@@ -14,23 +14,23 @@ const GlobalStyles = createGlobalStyle`
         --white : white;
         --black: black;
     }
-    html{
+    html {
         font-size: 10px;
         font-family: 'Roboto Mono';
         background-color: var(--dark-bg);
     }
-    ul,li{
+    ul,li {
         list-style: none;
     }
-    a{
+    a {
         text-decoration: none;
     }
-    img, svg{
+    img, svg {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    button{
+    button {
         outline: none
     }
     .container {
@@ -44,13 +44,13 @@ const GlobalStyles = createGlobalStyle`
         overflow: hidden;
         background-color: var(--gray-1);
         .scroll-content {
-        background-color: var(--dark-bg);
+            background-color: var(--dark-bg);
         }
         .scrollbar-track.scrollbar-track-y {
-        background: var(--deep-dark);
-        .scrollbar-thumb-y {
-            background: var(--gray-1);
-        }
+            background: var(--deep-dark);
+            .scrollbar-thumb-y {
+                background: var(--gray-1);
+            }
         }
     }
 `;
