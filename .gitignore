@@ -4,6 +4,9 @@ haters/
 *.fig
 course-layout.md
 
+# Production
+/build
+
 # Logs
 logs
 *.log
