@@ -16,16 +16,16 @@ export default function App() {
             <NavMenu />
             <SmoothScrollBar>
                 <Switch>
-                    <Route path='/RohanDey/about'>
+                    <Route path='/about'>
                         <About />
                     </Route>
-                    <Route path='/RohanDey/projects'>
+                    <Route path='/projects'>
                         <Projects />
                     </Route>
-                    <Route path='/RohanDey/contact'>
+                    <Route path='/contact'>
                         <Contact />
                     </Route>
-                    <Route path='/RohanDey'>
+                    <Route path='/'>
                         <Home />
                     </Route>
                 </Switch>
