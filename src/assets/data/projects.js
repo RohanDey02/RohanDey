@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import PawsupImage from '../images/pawsup-app.png';
 import MedicalSupplyChainsImage from '../images/medical-supply-chains.png';
 
-const projects = [
+const Projects = [
     {
         id: uuidv4(),
         name: 'Pawsup App',
@@ -18,4 +18,4 @@ const projects = [
     },
 ];
 
-export default projects;
+export default Projects;
