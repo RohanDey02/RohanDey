@@ -83,15 +83,14 @@ export default function About() {
 							<p className="aboutSubheading">
 								Hi, I am <span>Rohan Dey</span>
 							</p>
-							<h2 className="aboutHeading">A 2nd-Year Computer Science Student at the University of Toronto</h2>
+							<h2 className="aboutHeading">A 3rd-Year Computer Science Student at the University of Toronto</h2>
 							<div className="aboutInfo">
 								<PText>
 									I started coding when I was in the 10th grade. Coding is something I am very passionate about because I love
 									how my actions can directly translate to cool designs and features.
 									<br />
 									<br />
-									Furthermore, I have a great interest in cars and automation.
-									I dream of a day where a lot of the world's daily tasks will be automated so that humanity as a whole can move on and progress even further scientifically.
+									Furthermore, I have a great interest in cars and automation. I am currently learning virtualization infrastructures such as Docker and Kubernetes.
 								</PText>
 							</div>
 							<ResumeButton btnText="View CV" btnLink={Resume} />
@@ -128,6 +127,10 @@ export default function About() {
 						<div className="aboutInfoItem">
 							<h1 className="aboutInfoHeading">Experiences</h1>
 
+							<AboutInfoItem
+								title="2022-Present"
+								items={['Software Developer @ BLiNQ Networks']}
+							/>
 							<AboutInfoItem
 								title="2019-2020"
 								items={['LCPP Cultural Exchange Program']}

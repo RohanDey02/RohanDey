@@ -75,7 +75,7 @@ export default function HeroSection() {
                     </div>
                     <div className="heroInfo">
                         <PText>
-                            I am 2nd-Year Undergraduate Student at the University of Toronto doing a Specialist in Computer Science, Software Engineering Stream.
+                            I am a 3rd-Year Undergraduate Student at the University of Toronto doing a Specialist in Computer Science, Software Engineering Stream.
                         </PText>
                         <Button btnText="Check out my projects!" btnLink="/RohanDey/projects" />
                     </div>

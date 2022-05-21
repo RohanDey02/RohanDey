@@ -60,7 +60,7 @@ export default function Footer() {
                 <div className="footerCol1">
                     <h1 className="footerCol1Title">Rohan Dey</h1>
                     <PText>
-                        A 2nd-Year Undergraduate Student at the University of Toronto doing a Specialist in Computer Science, Software Engineering Stream.
+                        A 3rd-Year Undergraduate Student at the University of Toronto doing a Specialist in Computer Science, Software Engineering Stream.
                     </PText>
                 </div>
                 <div className="footerCol2">
