@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/RohanDey/static/js/main.247778f3.chunk.js",
-    "main.js.map": "/RohanDey/static/js/main.247778f3.chunk.js.map",
+    "main.js": "/RohanDey/static/js/main.c30c4b69.chunk.js",
+    "main.js.map": "/RohanDey/static/js/main.c30c4b69.chunk.js.map",
     "runtime-main.js": "/RohanDey/static/js/runtime-main.964d2a4d.js",
     "runtime-main.js.map": "/RohanDey/static/js/runtime-main.964d2a4d.js.map",
     "static/js/2.8440ab87.chunk.js": "/RohanDey/static/js/2.8440ab87.chunk.js",
@@ -10,10 +10,10 @@
     "static/js/2.8440ab87.chunk.js.LICENSE.txt": "/RohanDey/static/js/2.8440ab87.chunk.js.LICENSE.txt",
     "static/media/Montserrat-Bold.079ca05d.ttf": "/RohanDey/static/media/Montserrat-Bold.079ca05d.ttf",
     "static/media/Montserrat-SemiBold.fa8441f3.ttf": "/RohanDey/static/media/Montserrat-SemiBold.fa8441f3.ttf",
+    "static/media/Network.361fe773.gif": "/RohanDey/static/media/Network.361fe773.gif",
     "static/media/RobotoMono-Regular.418a8f9f.ttf": "/RohanDey/static/media/RobotoMono-Regular.418a8f9f.ttf",
-    "static/media/Rohans_Resume.5a8bb278.pdf": "/RohanDey/static/media/Rohans_Resume.5a8bb278.pdf",
+    "static/media/Rohans_Resume.5311b08c.pdf": "/RohanDey/static/media/Rohans_Resume.5311b08c.pdf",
     "static/media/about-page-img.fc195ec9.png": "/RohanDey/static/media/about-page-img.fc195ec9.png",
-    "static/media/hero.173b1cf3.png": "/RohanDey/static/media/hero.173b1cf3.png",
     "static/media/medical-supply-chains.bb14c449.png": "/RohanDey/static/media/medical-supply-chains.bb14c449.png",
     "static/media/pawsup-app.6a386148.png": "/RohanDey/static/media/pawsup-app.6a386148.png",
     "static/media/project-image.173b1cf3.png": "/RohanDey/static/media/project-image.173b1cf3.png"
@@ -21,6 +21,6 @@
   "entrypoints": [
     "static/js/runtime-main.964d2a4d.js",
     "static/js/2.8440ab87.chunk.js",
-    "static/js/main.247778f3.chunk.js"
+    "static/js/main.c30c4b69.chunk.js"
   ]
 }
