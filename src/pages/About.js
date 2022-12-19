@@ -83,14 +83,10 @@ export default function About() {
 							<p className="aboutSubheading">
 								Hi, I am <span>Rohan Dey</span>
 							</p>
-							<h2 className="aboutHeading">A 3rd-Year Computer Science Student at the University of Toronto</h2>
+							<h2 className="aboutHeading">A 4th-Year Computer Science Student at the University of Toronto</h2>
 							<div className="aboutInfo">
 								<PText>
-									I started coding when I was in the 10th grade. Coding is something I am very passionate about because I love
-									how my actions can directly translate to cool designs and features.
-									<br />
-									<br />
-									Furthermore, I have a great interest in cars and automation. I am currently learning virtualization infrastructures such as Docker and Kubernetes.
+									I began programming when I was in the 10th grade. At the moment, I am currently learning about efficient algorithms and virtualization infrastructures such as Docker and Kubernetes.
 								</PText>
 							</div>
 							<ResumeButton btnText="View CV" btnLink={Resume} />
@@ -112,23 +108,32 @@ export default function About() {
 							<h1 className="aboutInfoHeading">My Skills</h1>
 
 							<AboutInfoItem
-								title="Languages"
-								items={['Java', 'C/C++', 'Python', 'UNIX', 'React', 'React Native', 'SQL', 'NoSQL', 'JavaScript', 'Node.js']}
+								title="Technical"
+								items={['Java', 'Python', 'C/C++', 'Kubernetes', 'Docker', 'Bash', 'React', 'PostgreSQL', 'MongoDB', 'ElasticSearch']}
 							/>
 							<AboutInfoItem
-								title="Knows"
+								title=""
+								items={['JavaScript (Node.js)', 'Haskell']}
+							/>
+							<br />
+							<AboutInfoItem
+								title="Fluent In"
 								items={['English', 'French']}
 							/>
 							<AboutInfoItem
-								title="Design"
-								items={['Photoshop', 'Figma']}
+								title="Prototyping"
+								items={['Figma', 'Photoshop']}
 							/>
 						</div>
 						<div className="aboutInfoItem">
 							<h1 className="aboutInfoHeading">Experiences</h1>
 
 							<AboutInfoItem
-								title="2022-Present"
+								title="2023"
+								items={['Full Stack Developer @ KPMG']}
+							/>
+							<AboutInfoItem
+								title="2022"
 								items={['Software Developer @ BLiNQ Networks']}
 							/>
 							<AboutInfoItem

@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import styled from 'styled-components';
-import HeroImg from '../assets/images/hero.png';
+import HeroImg from '../assets/images/Network.gif';
 import Button from './Button';
 import PText from './PText';
 
 const HeroStyles = styled.div`
     .hero {
         height: 100vh;
-        min-height: 1000px;
+        min-height: 800px;
         width: 100%;
         text-align: center;
         display: flex;
@@ -38,7 +38,7 @@ const HeroStyles = styled.div`
         border: 2px solid var(--gray-1);
     }
     .heroInfo {
-        margin-top: -18rem;
+        margin-top: -20rem;
     }
     @media only screen and (max-width: 768px) {
         .hero {
@@ -67,7 +67,6 @@ export default function HeroSection() {
             <div className="hero">
                 <div className="container">
                     <h1 className="heroHeading">
-                        <span>I am</span>
                         <span className="heroName">Rohan Dey</span>
                     </h1>
                     <div className="heroImg">
@@ -75,7 +74,7 @@ export default function HeroSection() {
                     </div>
                     <div className="heroInfo">
                         <PText>
-                            I am a 3rd-Year Undergraduate Student at the University of Toronto doing a Specialist in Computer Science, Software Engineering Stream.
+                            I am a 4th-Year Undergraduate Student at the University of Toronto completing a Specialist in Computer Science, Software Engineering Stream.
                         </PText>
                         <Button btnText="Check out my projects!" btnLink="/RohanDey/projects" />
                     </div>
