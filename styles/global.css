@@ -4,6 +4,12 @@
 
 @import './../components/Navbar/navbar.module.css';
 
+@layer components {
+  .main-div-left {
+    @apply pl-96 pt-16;
+  }
+}
+
 html,
 body {
   padding: 0;

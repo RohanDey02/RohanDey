@@ -1,5 +1,5 @@
 const Navbar = () => {
-    return <div className="pl-96 pt-16 text-slate-400">
+    return <div className="main-div-left">
         <a className="group navbar-link" href="#about">
             <span className="navbar-bullet"></span>
             <span>ABOUT</span>

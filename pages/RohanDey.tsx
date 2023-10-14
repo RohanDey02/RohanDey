@@ -1,9 +1,11 @@
-import LeftPanel from "../components/LeftPanel"
+import LeftHeading from "../components/LeftHeading"
 import Navbar from "../components/Navbar"
+// import RadialCursorGradient from "../components/RadialCursorGradient"
 
 export default function Home() {
   return <>
-    <LeftPanel />
+    <LeftHeading />
     <Navbar />
+    {/* <RadialCursorGradient /> */}
   </>
 }

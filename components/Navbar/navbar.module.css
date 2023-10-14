@@ -4,7 +4,7 @@
 
 @layer components {
     .navbar-link {
-        @apply flex items-center py-3 hover:text-slate-200;
+        @apply flex items-center py-3 text-slate-400 hover:text-slate-200;
     }
 
     .navbar-bullet {
