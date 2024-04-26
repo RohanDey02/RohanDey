@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './../components/Navbar/navbar.module.css';
+@import './../components/Experience/styles.css';
 
 @layer components {
   .main-div-left {

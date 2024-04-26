@@ -38,13 +38,15 @@ export default function Home() {
 
     <div ref={homeRef} className="mouse-radial-gradient">
       <div className="flex">
-        <LeftHeading />
+        <div>
+          <LeftHeading />
+          <Navbar />
+        </div>
         <div className="main-div-right">
           <About />
           <Experience />
         </div>
       </div>
-      <Navbar />
     </div>
   </>);
 }

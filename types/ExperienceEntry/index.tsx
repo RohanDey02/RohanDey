@@ -3,6 +3,7 @@ type ExperienceEntry = {
     endYear: string;
     role: string;
     company: string;
+    companyUrl: string;
     description: string;
     technologies: string[];
 };
