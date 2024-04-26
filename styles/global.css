@@ -6,7 +6,10 @@
 
 @layer components {
   .main-div-left {
-    @apply pl-96 pt-16;
+    @apply pl-16 pt-16;
+  }
+  .main-div-right {
+    @apply pr-16 pt-16;
   }
 }
 

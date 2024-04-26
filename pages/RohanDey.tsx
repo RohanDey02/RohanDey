@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import LeftHeading from "../components/LeftHeading"
+import About from "../components/About"
 import Navbar from "../components/Navbar"
+import Experience from "../components/Experience";
 
 export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -35,7 +37,13 @@ export default function Home() {
     `}</style>
 
     <div ref={homeRef} className="mouse-radial-gradient">
-      <LeftHeading />
+      <div className="flex">
+        <LeftHeading />
+        <div className="main-div-right">
+          <About />
+          <Experience />
+        </div>
+      </div>
       <Navbar />
     </div>
   </>);
