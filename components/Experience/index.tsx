@@ -3,8 +3,8 @@ import experienceData from "./experiences.json";
 import ExperienceEntry from "../../types/ExperienceEntry";
 
 const ExperienceEntryCard: React.FC<ExperienceEntry> = ({ startYear, endYear, role, company, companyUrl, description, technologies }) => {
-    return (
-        <div className="exp-card">
+    return (            
+        <div className="exp-card -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition lg:-inset-x-6 lg:block lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg">
             <div className="exp-card-left text-xs uppercase tracking-wide text-slate-500 sm:col-span-2">
                 <p>{startYear} - {endYear}</p>
             </div>

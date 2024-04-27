@@ -1,7 +1,8 @@
 .exp-card {
     color: rgb(226 232 240);
     display: flex;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
 }
 
 .exp-card-left {
