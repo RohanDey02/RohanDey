@@ -6,20 +6,27 @@
 @import './../components/Experience/styles.css';
 
 @layer components {
+  .glass-hover {
+    @apply z-0 hidden rounded-md transition lg:-inset-x-6 lg:block lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg;
+  }
   .main-div-left {
-    @apply pl-16 pt-16;
+    @apply ml-16 mt-16;
   }
   .main-div-right {
-    @apply pr-16 pt-16;
+    @apply ml-8 mt-16 mr-16 max-w-half;
+  }
+  div p strong {
+    @apply text-slate-200;
   }
 }
 
 html,
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 0 2.5rem 0;
   line-height: 1.6;
   font-size: 18px;
+  background-color: #0F172A;
 }
 
 * {

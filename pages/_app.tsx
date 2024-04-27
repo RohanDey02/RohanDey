@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <div className={inter.className} style={{ backgroundColor: '#0F172A', minHeight: '100vh' }}>
+  return <div className={inter.className}>
     <Component {...pageProps} />
   </div>
 }
