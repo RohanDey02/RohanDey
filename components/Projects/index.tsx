@@ -27,9 +27,9 @@ const ProjectEntryCard: React.FC<ProjectEntry> = ({ year, project, projectUrl, d
     )
 }
 
-const Projects = () => {
+const Projects = (props: { refProp: React.LegacyRef<HTMLDivElement> | undefined; }) => {
     return <>
-        <h2 className="mt-2 text-2xl text-slate-200 font-medium">Projects</h2>
+        <div className="mt-2 text-2xl text-slate-200 font-medium" ref={props.refProp}>Projects</div>
         <div className="experience-list">
             {projectData.map((experience: ProjectEntry, index: number) => (
                 <ProjectEntryCard key={index} {...experience} />

@@ -8,6 +8,9 @@ import Projects from "../components/Projects";
 
 export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const openSourceRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateMousePos = (event: MouseEvent) => {
@@ -42,13 +45,13 @@ export default function Home() {
       <div className="lg:flex">
         <div>
           <LeftHeading />
-          <Navbar />
+          <Navbar expRef={experienceRef} osRef={openSourceRef} projRef={projectRef} />
         </div>
         <div className="main-div-right">
           <Contact />
-          <Experience />
-          <OpenSource />
-          <Projects />
+          <Experience refProp={experienceRef} />
+          <OpenSource refProp={openSourceRef} />
+          <Projects refProp={projectRef} />
         </div>
       </div>
     </div>

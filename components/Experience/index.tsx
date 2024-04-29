@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import experienceData from "./experiences.json";
 import ExperienceEntry from "../../types/ExperienceEntry";
 
@@ -27,9 +27,9 @@ const ExperienceEntryCard: React.FC<ExperienceEntry> = ({ startYear, endYear, ro
     )
 }
 
-const Experience = () => {
+const Experience = (props: { refProp: React.LegacyRef<HTMLDivElement> | undefined; }) => {
     return <>
-        <h2 className="mt-2 text-2xl text-slate-200 font-medium">Experience</h2>
+        <div className="mt-2 text-2xl text-slate-200 font-medium" ref={props.refProp}>Experience</div>
         <div className="experience-list">
             {experienceData.map((experience: ExperienceEntry, index: number) => (
                 <ExperienceEntryCard key={index} {...experience} />

@@ -33,9 +33,9 @@ const OpenSourceEntryCard: React.FC<OpenSourceEntry> = ({ project, projectUrl, d
     )
 }
 
-const OpenSource = () => {
+const OpenSource = (props: { refProp: React.LegacyRef<HTMLDivElement> | undefined; }) => {
     return <>
-        <h2 className="mt-2 text-2xl text-slate-200 font-medium">Open-Source Contributions</h2>
+        <div className="mt-2 text-2xl text-slate-200 font-medium" ref={props.refProp}>Open-Source Contributions</div>
         <div className="experience-list">
             {openSourceData.map((entry: OpenSourceEntry, index: number) => (
                 <OpenSourceEntryCard key={index} {...entry} />
