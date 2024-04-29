@@ -3,6 +3,8 @@ import LeftHeading from "../components/LeftHeading"
 import Contact from "../components/Contact"
 import Navbar from "../components/Navbar"
 import Experience from "../components/Experience";
+import OpenSource from "../components/OpenSource";
+import Projects from "../components/Projects";
 
 export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -26,7 +28,7 @@ export default function Home() {
   return (<>
     <style>{`
       .mouse-radial-gradient {
-        height: 100vh;
+        height: 100%;
         width: 100%;
         background-image: radial-gradient(
           circle 450px at var(--x) var(--y),
@@ -45,6 +47,8 @@ export default function Home() {
         <div className="main-div-right">
           <Contact />
           <Experience />
+          <OpenSource />
+          <Projects />
         </div>
       </div>
     </div>

@@ -1,0 +1,39 @@
+[
+    {
+        "startYear": "Sept 2023",
+        "endYear": "Feb 2024",
+        "role": "Software Developer Intern",
+        "company": "GBatteries",
+        "companyUrl": "https://www.gbatteries.com/",
+        "description": "Developed charging analytics software, safeguarded battery test data, and orchestrated various Kubernetes and AWS tasks.",
+        "technologies": [
+            "Python",
+            "Flask",
+            "React",
+            "Node.js",
+            "SQL",
+            "Docker",
+            "Kubernetes",
+            "Terraform",
+            "AWS",
+            "Git"
+        ]
+    },
+    {
+        "startYear": "Jan 2023",
+        "endYear": "Apr 2023",
+        "role": "Full Stack Developer Intern",
+        "company": "KPMG",
+        "companyUrl": "https://kpmg.com/ca/en/home.html",
+        "description": "Optimized the job classification tool and revamped the appearance of internal tools to provide an improved UI/UX.",
+        "technologies": [
+            "Python",
+            "Flask",
+            "React",
+            "Node.js",
+            "JavaScript",
+            "Tailwind CSS",
+            "Git"
+        ]
+    }
+]

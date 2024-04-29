@@ -1,9 +1,9 @@
 import React from "react";
-import experienceData from "./experiences.json";
+import projectData from "./projects.json";
 import ExperienceEntry from "../../types/ExperienceEntry";
 
-const ExperienceEntryCard: React.FC<ExperienceEntry> = ({ startYear, endYear, role, company, companyUrl, description, technologies }) => {
-    return (
+const ProjectEntryCard: React.FC<ExperienceEntry> = ({ startYear, endYear, role, company, companyUrl, description, technologies }) => {
+    return (            
         <div className="exp-card glass-hover">
             <div className="exp-card-left text-xs uppercase tracking-wide text-slate-500 sm:col-span-2">
                 <p>{startYear} - {endYear}</p>
@@ -27,12 +27,12 @@ const ExperienceEntryCard: React.FC<ExperienceEntry> = ({ startYear, endYear, ro
     )
 }
 
-const Experience = () => {
+const Projects = () => {
     return <div className="experience-list">
-        {experienceData.map((experience: ExperienceEntry, index: number) => (
-            <ExperienceEntryCard key={index} {...experience} />
+        {projectData.map((experience: ExperienceEntry, index: number) => (
+            <ProjectEntryCard key={index} {...experience} />
         ))}
     </div>;
 };
 
-export default Experience;
+export default Projects;
