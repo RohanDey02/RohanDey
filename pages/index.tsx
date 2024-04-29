@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import LeftHeading from "../components/LeftHeading"
 import Contact from "../components/Contact"
 import Navbar from "../components/Navbar"
@@ -12,21 +12,38 @@ export default function Home() {
   const openSourceRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
 
+  const [scrollAmt, setScrollAmt] = useState<number>(0);
+
+  const updateMousePos = (event: MouseEvent) => {
+    if (!homeRef.current) return;
+
+    const { clientX, clientY } = event;
+    homeRef.current.style.setProperty("--x", `${clientX}px`);
+    homeRef.current.style.setProperty("--y", `${clientY + scrollAmt}px`);
+  };
+
+  const updateMouseWheel = (event: WheelEvent) => {
+    if (!homeRef.current) return;
+    const { deltaY } = event;
+    const { clientHeight } = homeRef.current;
+    if (deltaY > 0 && scrollAmt <= clientHeight - window.innerHeight) {
+      setScrollAmt(Math.max(scrollAmt + deltaY, 0));
+    }
+
+    if (deltaY < 0) {
+      setScrollAmt(Math.max(scrollAmt + deltaY, 0));
+    }
+  }
+
   useEffect(() => {
-    const updateMousePos = (event: MouseEvent) => {
-      if (!homeRef.current) return;
-
-      const { clientX, clientY } = event;
-      homeRef.current.style.setProperty("--x", `${clientX}px`);
-      homeRef.current.style.setProperty("--y", `${clientY}px`);
-    };
-
     window.addEventListener("mousemove", updateMousePos);
+    window.addEventListener("wheel", updateMouseWheel);
 
     return () => {
       window.removeEventListener("mousemove", updateMousePos);
+      window.removeEventListener("wheel", updateMouseWheel);
     }
-  }, []);
+  }, [scrollAmt]);
 
   return (<>
     <style>{`
