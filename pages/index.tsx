@@ -1,11 +1,16 @@
 import { useEffect, useRef } from "react";
 import LeftHeading from "../components/LeftHeading"
-import About from "../components/About"
+import Contact from "../components/Contact"
 import Navbar from "../components/Navbar"
 import Experience from "../components/Experience";
+import OpenSource from "../components/OpenSource";
+import Projects from "../components/Projects";
 
 export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const openSourceRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateMousePos = (event: MouseEvent) => {
@@ -26,7 +31,7 @@ export default function Home() {
   return (<>
     <style>{`
       .mouse-radial-gradient {
-        height: 100vh;
+        height: 100%;
         width: 100%;
         background-image: radial-gradient(
           circle 450px at var(--x) var(--y),
@@ -37,14 +42,16 @@ export default function Home() {
     `}</style>
 
     <div ref={homeRef} className="mouse-radial-gradient">
-      <div className="flex">
+      <div className="lg:flex">
         <div>
           <LeftHeading />
-          <Navbar />
+          <Navbar expRef={experienceRef} osRef={openSourceRef} projRef={projectRef} />
         </div>
         <div className="main-div-right">
-          <About />
-          <Experience />
+          <Contact />
+          <Experience refProp={experienceRef} />
+          <OpenSource refProp={openSourceRef} />
+          <Projects refProp={projectRef} />
         </div>
       </div>
     </div>

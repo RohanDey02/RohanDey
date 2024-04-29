@@ -1,0 +1,17 @@
+[
+    {
+        "project": "LangChain AI",
+        "projectUrl": "https://github.com/langchain-ai/langchain",
+        "description": "Contributed to LangChain AI, a framework for developing applications powered by large language models (LLM).",
+        "technologies": [
+            "Python",
+            "Pandas"
+        ],
+        "contributions": [
+            {
+                "description": "Created a Pandas DataFrame output parser, boosting LangChain’s compatibility with 50% of Python products.",
+                "contributionUrl": "https://github.com/langchain-ai/langchain/pull/13257"
+            }
+        ]
+    }
+]

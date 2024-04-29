@@ -1,0 +1,39 @@
+[
+    {
+        "year": "2023",
+        "project": "PintOS",
+        "projectUrl": "https://web.stanford.edu/class/cs140/projects/pintos/pintos_1.html",
+        "description": "Developed an operating system in C, implementing thread scheduling, virtual memory, and a file system.",
+        "technologies": [
+            "Assembly",
+            "C",
+            "Docker"
+        ]
+    },
+    {
+        "year": "2021",
+        "project": "Pawsup",
+        "projectUrl": "https://github.com/RohanDey02/pawsup-application",
+        "description": "Communicated with Pawsup startup to create an app based on their requirements using the MERN stack while following agile development methodologies.",
+        "technologies": [
+            "Docker",
+            "Express",
+            "Heroku",
+            "MongoDB",
+            "Node.js",
+            "React"
+        ]
+    },
+    {
+        "year": "2021",
+        "project": "Medical Supply Chains",
+        "projectUrl": "https://github.com/RohanDey02/medical-supply-chains",
+        "description": "Developed a fair and efficient algorithm in object-oriented Python with Plotly and Tkinter to redistribute the vaccines between countries to ensure each country can fully immunize their populations.",
+        "technologies": [
+            "BS4",
+            "Python",
+            "Pandas",
+            "Plotly"
+        ]
+    }
+]
