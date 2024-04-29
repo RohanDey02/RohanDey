@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import LeftHeading from "../components/LeftHeading"
-import About from "../components/About"
+import Contact from "../components/Contact"
 import Navbar from "../components/Navbar"
 import Experience from "../components/Experience";
 
@@ -43,7 +43,7 @@ export default function Home() {
           <Navbar />
         </div>
         <div className="main-div-right">
-          <About />
+          <Contact />
           <Experience />
         </div>
       </div>
