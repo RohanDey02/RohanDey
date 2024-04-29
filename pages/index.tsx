@@ -39,7 +39,7 @@ export default function Home() {
     `}</style>
 
     <div ref={homeRef} className="mouse-radial-gradient">
-      <div className="flex">
+      <div className="lg:flex">
         <div>
           <LeftHeading />
           <Navbar />

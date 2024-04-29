@@ -3,7 +3,7 @@ import openSourceData from "./opensource.json";
 import OpenSourceEntry from "../../types/OpenSourceEntry";
 
 const OpenSourceEntryCard: React.FC<OpenSourceEntry> = ({ project, projectUrl, description, technologies, contributions }) => {
-    return (            
+    return (
         <div className="exp-card glass-hover">
             <div className="exp-card-right">
                 <a className="hover:text-teal-300" href={projectUrl}>
@@ -34,11 +34,14 @@ const OpenSourceEntryCard: React.FC<OpenSourceEntry> = ({ project, projectUrl, d
 }
 
 const OpenSource = () => {
-    return <div className="experience-list">
-        {openSourceData.map((entry: OpenSourceEntry, index: number) => (
-            <OpenSourceEntryCard key={index} {...entry} />
-        ))}
-    </div>;
+    return <>
+        <h2 className="mt-2 text-2xl text-slate-200 font-medium">Open-Source Contributions</h2>
+        <div className="experience-list">
+            {openSourceData.map((entry: OpenSourceEntry, index: number) => (
+                <OpenSourceEntryCard key={index} {...entry} />
+            ))}
+        </div>
+    </>;
 };
 
 export default OpenSource;

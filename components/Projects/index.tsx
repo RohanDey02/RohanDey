@@ -3,7 +3,7 @@ import projectData from "./projects.json";
 import ProjectEntry from "../../types/ProjectEntry";
 
 const ProjectEntryCard: React.FC<ProjectEntry> = ({ year, project, projectUrl, description, technologies }) => {
-    return (            
+    return (
         <div className="exp-card glass-hover">
             <div className="exp-card-left text-xs uppercase tracking-wide text-slate-500 sm:col-span-2">
                 <p>{year}</p>
@@ -28,11 +28,14 @@ const ProjectEntryCard: React.FC<ProjectEntry> = ({ year, project, projectUrl, d
 }
 
 const Projects = () => {
-    return <div className="experience-list">
-        {projectData.map((experience: ProjectEntry, index: number) => (
-            <ProjectEntryCard key={index} {...experience} />
-        ))}
-    </div>;
+    return <>
+        <h2 className="mt-2 text-2xl text-slate-200 font-medium">Projects</h2>
+        <div className="experience-list">
+            {projectData.map((experience: ProjectEntry, index: number) => (
+                <ProjectEntryCard key={index} {...experience} />
+            ))}
+        </div>
+    </>;
 };
 
 export default Projects;

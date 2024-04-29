@@ -12,6 +12,10 @@ module.exports = {
     extend: {
       maxWidth: {
         'half': '50%'
+      },
+      screens: {
+        'smMax': {'max': '600px'},
+        'mdMax': {'max': '1100px'},
       }
     },
   },

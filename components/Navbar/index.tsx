@@ -1,5 +1,5 @@
 const Navbar = () => {
-    return <div className="main-div-left">
+    return <div className="smMax:hidden main-div-left lg:block">
         <a className="group navbar-link" href="#experience">
             <span className="navbar-bullet"></span>
             <span>EXPERIENCE</span>

@@ -8,9 +8,9 @@ Let's connect and explore the possibilities together!
 `
 
 const Contact = () => {
-    return <div className='glass-hover pl-2 pr-2 pb-2'>
+    return <div className='glass-hover sm:pl-2 sm:pr-2 sm:pb-2'>
         <ReactMarkdown className="text-slate-400 mt-2 text-base leading-normal whitespace-pre-line">{AboutMe}</ReactMarkdown>
-        <div className='lg:flex lg:justify-start lg:gap-3 pt-2'>
+        <div className='flex lg:justify-start lg:gap-3 pt-2'>
             <LinkedIn />
             <GitHub />
         </div>

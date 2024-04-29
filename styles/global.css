@@ -7,13 +7,13 @@
 
 @layer components {
   .glass-hover {
-    @apply z-0 hidden rounded-md transition lg:-inset-x-6 lg:block lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg;
+    @apply z-0 rounded-md transition lg:-inset-x-6 lg:block lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg;
   }
   .main-div-left {
-    @apply ml-16 mt-16;
+    @apply m-4 sm:ml-16 sm:mt-16;
   }
   .main-div-right {
-    @apply ml-8 mt-16 mr-16 max-w-half;
+    @apply m-4 lg:ml-8 lg:mt-16 lg:mr-16 mb-8 lg:max-w-half;
   }
   div p strong {
     @apply text-slate-200;

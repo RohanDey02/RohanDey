@@ -28,11 +28,14 @@ const ExperienceEntryCard: React.FC<ExperienceEntry> = ({ startYear, endYear, ro
 }
 
 const Experience = () => {
-    return <div className="experience-list">
-        {experienceData.map((experience: ExperienceEntry, index: number) => (
-            <ExperienceEntryCard key={index} {...experience} />
-        ))}
-    </div>;
+    return <>
+        <h2 className="mt-2 text-2xl text-slate-200 font-medium">Experience</h2>
+        <div className="experience-list">
+            {experienceData.map((experience: ExperienceEntry, index: number) => (
+                <ExperienceEntryCard key={index} {...experience} />
+            ))}
+        </div>
+    </>;
 };
 
 export default Experience;
