@@ -1,5 +1,21 @@
 [
     {
+        "startYear": "June 2024",
+        "endYear": "Present",
+        "role": "Junior Software Developer",
+        "company": "Intelliware",
+        "companyUrl": "https://www.intelliware.com/",
+        "description": "Provided software consulting services, focusing on enhancing application performance and improving solutions.",
+        "technologies": [
+            "Java",
+            "TypeScript",
+            "Kubernetes",
+            "Terraform",
+            "AWS",
+            "Git"
+        ]
+    },
+    {
         "startYear": "Sept 2023",
         "endYear": "Feb 2024",
         "role": "Software Developer Intern",
