@@ -8,6 +8,7 @@
         "description": "Provided software consulting services, focusing on enhancing application performance and improving solutions.",
         "technologies": [
             "Java",
+            "Python",
             "TypeScript",
             "Kubernetes",
             "Terraform",
