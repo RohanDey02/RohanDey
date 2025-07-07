@@ -2,14 +2,21 @@
     {
         "startYear": "June 2024",
         "endYear": "Present",
-        "role": "Junior Software Developer",
+        "role": "Software Developer",
         "company": "Electric Mind",
         "companyUrl": "https://www.electricmind.com/",
-        "description": "Provided software consulting services, focusing on enhancing application performance and improving solutions.",
+        "description": "Provided software consulting services, focusing on enhancing application performance and improving solutions. Now lead initiatives, architect solutions, and mentor junior team members.",
+        "previousRole": {
+            "title": "Junior Software Developer",
+            "period": "June 2024 – June 2025"
+        },
         "technologies": [
             "Java",
             "Python",
             "TypeScript",
+            "Node.js",
+            "React",
+            "Angular",
             "Kubernetes",
             "Terraform",
             "AWS",

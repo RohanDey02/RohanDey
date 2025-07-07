@@ -2,9 +2,9 @@ import ReactMarkdown from 'react-markdown';
 import { GitHub, LinkedIn } from './Icons';
 
 const AboutMe = `
-My career trajectory has led me through diverse experiences, crafting software solutions for both nimble startups and industry giants leading to **over 1 year of work experience**.
+I'm a software developer with over 2 years of hands-on experience building solutions for both startups and large companies. I enjoy tackling new challenges, learning new technologies, and creating real impact through code.
 
-Let's connect and explore the possibilities together!
+Let's connect!
 `
 
 const Contact = () => {
