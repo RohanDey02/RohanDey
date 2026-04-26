@@ -18,6 +18,7 @@ export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState<SectionId>("experience");
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
+  const [loaderPhase, setLoaderPhase] = useState<"visible" | "closing" | "hidden">("visible");
 
   const sectionMap: Record<SectionId, React.RefObject<HTMLDivElement | null>> = {
     "experience": experienceRef,
@@ -32,6 +33,21 @@ export default function Home() {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
+  useEffect(() => {
+    const closeLoaderTimer = window.setTimeout(() => {
+      setLoaderPhase("closing");
+    }, 1100);
+
+    const hideLoaderTimer = window.setTimeout(() => {
+      setLoaderPhase("hidden");
+    }, 1700);
+
+    return () => {
+      window.clearTimeout(closeLoaderTimer);
+      window.clearTimeout(hideLoaderTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const updateMousePos = (event: MouseEvent) => {
@@ -106,12 +122,26 @@ export default function Home() {
   return (
     <div
       ref={wrapperRef}
-      className="site-shell"
+      className={`site-shell ${loaderPhase !== "hidden" ? "site-shell-loading" : ""}`}
       style={{
         ["--mouse-x" as string]: `${mousePos.x}px`,
         ["--mouse-y" as string]: `${mousePos.y}px`,
       }}
     >
+      {loaderPhase !== "hidden" && (
+        <div className={`intro-loader ${loaderPhase === "closing" ? "intro-loader-exit" : ""}`} role="status" aria-label="Loading portfolio">
+          <div className="intro-loader-content">
+            <p className="intro-loader-tag">Initializing Portfolio</p>
+            <h1 className="intro-loader-title">Rohan Dey</h1>
+            <div className="intro-loader-bars" aria-hidden="true">
+              <span className="intro-loader-bar" />
+              <span className="intro-loader-bar" />
+              <span className="intro-loader-bar" />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="scroll-progress" style={{ transform: `scaleX(${Math.min(1, Math.max(0, scrollProgress))})` }} />
       <div className="aurora-layer" aria-hidden="true" />
       <div className="noise-layer" aria-hidden="true" />
