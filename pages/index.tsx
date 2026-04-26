@@ -6,71 +6,116 @@ import Experience from "../components/Experience";
 import OpenSource from "../components/OpenSource";
 import Projects from "../components/Projects";
 
+type SectionId = "experience" | "open-source" | "projects";
+
 export default function Home() {
-  const homeRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
   const openSourceRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
 
-  const [scrollAmt, setScrollAmt] = useState<number>(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState<SectionId>("experience");
 
-  const updateMousePos = (event: MouseEvent) => {
-    if (!homeRef.current) return;
-
-    const { clientX, clientY } = event;
-    homeRef.current.style.setProperty("--x", `${clientX}px`);
-    homeRef.current.style.setProperty("--y", `${clientY + scrollAmt}px`);
+  const sectionMap: Record<SectionId, React.RefObject<HTMLDivElement | null>> = {
+    "experience": experienceRef,
+    "open-source": openSourceRef,
+    "projects": projectRef,
   };
 
-  const updateMouseWheel = (event: WheelEvent) => {
-    if (!homeRef.current) return;
-    const { deltaY } = event;
-    const { clientHeight } = homeRef.current;
-    if (deltaY > 0 && scrollAmt <= clientHeight - window.innerHeight) {
-      setScrollAmt(Math.max(scrollAmt + deltaY, 0));
+  const handleNavigate = (id: SectionId) => {
+    setActiveSection(id);
+    const target = sectionMap[id].current;
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-
-    if (deltaY < 0) {
-      setScrollAmt(Math.max(scrollAmt + deltaY, 0));
-    }
-  }
+  };
 
   useEffect(() => {
+    const updateMousePos = (event: MouseEvent) => {
+      setMousePos({ x: event.clientX, y: event.clientY });
+    };
+
+    const updateScrollProgress = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      if (scrollable <= 0) {
+        setScrollProgress(0);
+        return;
+      }
+      setScrollProgress(window.scrollY / scrollable);
+    };
+
     window.addEventListener("mousemove", updateMousePos);
-    window.addEventListener("wheel", updateMouseWheel);
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    updateScrollProgress();
 
     return () => {
       window.removeEventListener("mousemove", updateMousePos);
-      window.removeEventListener("wheel", updateMouseWheel);
-    }
-  }, [scrollAmt]);
+      window.removeEventListener("scroll", updateScrollProgress);
+    };
+  }, []);
 
-  return (<>
-    <style>{`
-      .mouse-radial-gradient {
-        height: 100%;
-        width: 100%;
-        background-image: radial-gradient(
-          circle 450px at var(--x) var(--y),
-          rgba(29, 78, 216, 0.15),
-          transparent 80%
-        );
+  useEffect(() => {
+    const refs: { id: SectionId; ref: React.RefObject<HTMLDivElement | null> }[] = [
+      { id: "experience", ref: experienceRef },
+      { id: "open-source", ref: openSourceRef },
+      { id: "projects", ref: projectRef },
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          const section = visible[0].target.getAttribute("data-section") as SectionId | null;
+          if (section) {
+            setActiveSection(section);
+          }
+        }
+      },
+      { threshold: [0.2, 0.4, 0.6], rootMargin: "-10% 0px -45% 0px" }
+    );
+
+    refs.forEach(({ ref }) => {
+      if (ref.current) {
+        observer.observe(ref.current);
       }
-    `}</style>
+    });
 
-    <div ref={homeRef} className="mouse-radial-gradient">
-      <div className="lg:flex">
-        <div>
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className="site-shell"
+      style={{
+        ["--mouse-x" as string]: `${mousePos.x}px`,
+        ["--mouse-y" as string]: `${mousePos.y}px`,
+      }}
+    >
+      <div className="scroll-progress" style={{ transform: `scaleX(${Math.min(1, Math.max(0, scrollProgress))})` }} />
+      <div className="aurora-layer" aria-hidden="true" />
+      <div className="noise-layer" aria-hidden="true" />
+      <div className="spotlight-layer" aria-hidden="true" />
+
+      <div className="layout-grid">
+        <aside className="left-column">
           <LeftHeading />
-          <Navbar expRef={experienceRef} osRef={openSourceRef} projRef={projectRef} />
-        </div>
-        <div className="main-div-right">
+          <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
+        </aside>
+
+        <main className="main-div-right right-column">
           <Contact />
-          <Experience refProp={experienceRef} />
-          <OpenSource refProp={openSourceRef} />
-          <Projects refProp={projectRef} />
-        </div>
+          <Experience refProp={experienceRef} sectionId="experience" />
+          <OpenSource refProp={openSourceRef} sectionId="open-source" />
+          <Projects refProp={projectRef} sectionId="projects" />
+        </main>
       </div>
     </div>
-  </>);
+  );
 }

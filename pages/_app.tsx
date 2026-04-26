@@ -1,9 +1,19 @@
 import '../styles/global.css';
 import { AppProps } from 'next/app';
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google';
 import Head from 'next/head';
 
-const inter = Inter({ subsets: ['latin'] });
+const headingFont = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+});
+
+const bodyFont = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return <>
@@ -15,7 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
       />
       <title>Rohan Dey</title>
     </Head>
-    <div className={inter.className}>
+    <div className={`${headingFont.variable} ${bodyFont.variable}`}>
       <Component {...pageProps} />
     </div>
   </>

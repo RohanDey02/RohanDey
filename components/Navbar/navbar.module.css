@@ -4,10 +4,31 @@
 
 @layer components {
     .navbar-link {
-        @apply flex items-center py-3 text-slate-400 hover:text-slate-200;
+        @apply w-full flex items-center py-3 text-slate-300 hover:text-cyan-100 transition;
+        background: transparent;
+        border: 0;
+        text-align: left;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        font-size: 0.82rem;
     }
 
     .navbar-bullet {
-        @apply mr-4 h-0.5 w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none;
+        @apply mr-4 h-0.5 w-8 transition-all group-hover:w-14 group-focus-visible:w-14 motion-reduce:transition-none;
+        background: linear-gradient(90deg, rgba(153, 187, 255, 0.6), rgba(92, 214, 255, 0.8));
+        border-radius: 999px;
+        box-shadow: 0 0 10px rgba(92, 214, 255, 0.45);
+    }
+
+    .navbar-link-active {
+        @apply text-cyan-100;
+    }
+
+    .navbar-link-active .navbar-bullet {
+        width: 4rem;
+        background: linear-gradient(90deg, rgba(108, 247, 200, 1), rgba(92, 214, 255, 1));
+        box-shadow: 0 0 12px rgba(108, 247, 200, 0.65);
     }
 }

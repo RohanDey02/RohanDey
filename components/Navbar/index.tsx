@@ -1,45 +1,28 @@
-const Navbar = (props: { expRef: React.LegacyRef<HTMLDivElement>, osRef: React.LegacyRef<HTMLDivElement>, projRef: React.LegacyRef<HTMLDivElement> }) => {
-    const execScroll = (pos: number) => {
-        let refObject = null;
-        console.log(pos);
-        switch (pos) {
-            case 0:
-                refObject = props.expRef as React.RefObject<HTMLDivElement>;
-                if (refObject !== null && refObject.current) {
-                    refObject.current.scrollIntoView();
-                }
-                break;
-            case 1:
-                refObject = props.osRef as React.RefObject<HTMLDivElement>;
-                if (refObject !== null && refObject.current) {
-                    refObject.current.scrollIntoView();
-                }
-                break;
-            case 2:
-                refObject = props.projRef as React.RefObject<HTMLDivElement>;
-                if (refObject !== null && refObject.current) {
-                    refObject.current.scrollIntoView();
-                }
-                break;
-            default:
-                console.log("Error, no such case!")
-        }
-    };
+type SectionId = "experience" | "open-source" | "projects";
 
-    return <div className="smMax:hidden main-div-left lg:block">
-        <a className="group navbar-link" href="#experience" onClick={() => execScroll(0)}>
-            <span className="navbar-bullet"></span>
-            <span>EXPERIENCE</span>
-        </a>
-        <a className="group navbar-link" href="#open-source" onClick={() => execScroll(1)}>
-            <span className="navbar-bullet"></span>
-            <span>OPEN-SOURCE CONTRIBUTIONS</span>
-        </a>
-        <a className="group navbar-link" href="#projects" onClick={() => execScroll(2)}>
-            <span className="navbar-bullet"></span>
-            <span>PROJECTS</span>
-        </a>
-    </div>;
+const navItems: { id: SectionId; label: string }[] = [
+    { id: "experience", label: "Experience" },
+    { id: "open-source", label: "Open-Source" },
+    { id: "projects", label: "Projects" },
+];
+
+const Navbar = (props: { activeSection: SectionId; onNavigate: (id: SectionId) => void }) => {
+    return <nav className="smMax:hidden main-div-left lg:block section-shell mt-4" aria-label="Portfolio sections">
+        {navItems.map((item) => {
+            const isActive = props.activeSection === item.id;
+            return (
+                <button
+                    key={item.id}
+                    className={`group navbar-link ${isActive ? "navbar-link-active" : ""}`}
+                    onClick={() => props.onNavigate(item.id)}
+                    type="button"
+                >
+                    <span className="navbar-bullet" aria-hidden="true"></span>
+                    <span>{item.label}</span>
+                </button>
+            );
+        })}
+    </nav>;
 };
 
 export default Navbar;
