@@ -1,5 +1,19 @@
 [
     {
+        "year": "2025",
+        "project": "UML Transcoder",
+        "projectUrl": "https://github.com/RohanDey02/uml-transcoder",
+        "description": "Built an AI-powered full-stack tool that converts between UML diagrams and code with a visual editor, custom .RohanUML import/export support, and multi-language generation flows.",
+        "technologies": [
+            "Angular",
+            "TypeScript",
+            "Node.js",
+            "Express",
+            "Hugging Face",
+            "JointJS"
+        ]
+    },
+    {
         "year": "2023",
         "project": "PintOS",
         "projectUrl": "https://web.stanford.edu/class/cs140/projects/pintos/pintos_1.html",
