@@ -17,6 +17,7 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState<SectionId>("experience");
+  const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
 
   const sectionMap: Record<SectionId, React.RefObject<HTMLDivElement | null>> = {
     "experience": experienceRef,
@@ -37,6 +38,17 @@ export default function Home() {
       setMousePos({ x: event.clientX, y: event.clientY });
     };
 
+    const updateHoverState = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target) {
+        setIsHoveringInteractive(false);
+        return;
+      }
+
+      const interactive = target.closest("a, button, input, textarea, select, label, [role='button']");
+      setIsHoveringInteractive(Boolean(interactive));
+    };
+
     const updateScrollProgress = () => {
       const doc = document.documentElement;
       const scrollable = doc.scrollHeight - doc.clientHeight;
@@ -48,11 +60,13 @@ export default function Home() {
     };
 
     window.addEventListener("mousemove", updateMousePos);
+    window.addEventListener("mouseover", updateHoverState);
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     updateScrollProgress();
 
     return () => {
       window.removeEventListener("mousemove", updateMousePos);
+      window.removeEventListener("mouseover", updateHoverState);
       window.removeEventListener("scroll", updateScrollProgress);
     };
   }, []);
@@ -102,6 +116,22 @@ export default function Home() {
       <div className="aurora-layer" aria-hidden="true" />
       <div className="noise-layer" aria-hidden="true" />
       <div className="spotlight-layer" aria-hidden="true" />
+      <div
+        aria-hidden="true"
+        className={`custom-cursor-ring ${isHoveringInteractive ? "custom-cursor-ring-active" : ""}`}
+        style={{
+          left: `${mousePos.x}px`,
+          top: `${mousePos.y}px`,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className={`custom-cursor-dot ${isHoveringInteractive ? "custom-cursor-dot-active" : ""}`}
+        style={{
+          left: `${mousePos.x}px`,
+          top: `${mousePos.y}px`,
+        }}
+      />
 
       <div className="layout-grid">
         <aside className="left-column">
