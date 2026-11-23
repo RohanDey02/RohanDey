@@ -71,6 +71,44 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
+      # Pulse (https://github.com/RohanDey02/pulse, private) publishes its
+      # browser build as a release asset built for the /RohanDey/pulse/ path.
+      # The newest one is unpacked into the export, so it is served next to
+      # this site at https://rohandey02.github.io/RohanDey/pulse/.
+      #
+      # PULSE_RELEASES_TOKEN is a fine-grained token with read-only Contents
+      # access to that repository. Without it the site deploys on its own.
+      - name: Add the Pulse web app at /pulse
+        env:
+          GH_TOKEN: ${{ secrets.PULSE_RELEASES_TOKEN }}
+          PULSE_REPO: RohanDey02/pulse
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::warning::PULSE_RELEASES_TOKEN is not set, so the site is deploying without /pulse."
+            exit 0
+          fi
+          # Newest release that carries a web bundle. Releases cut before the
+          # browser build existed have none.
+          asset_url="$(gh api "repos/${PULSE_REPO}/releases?per_page=30" --jq '
+            [.[] | select(.draft | not) | .assets[]
+              | select(.name | test("^pulse-.*-web[.]tar[.]gz$"))][0].url // empty')"
+          if [ -z "$asset_url" ]; then
+            echo "::warning::No Pulse release has a web bundle yet, so the site is deploying without /pulse."
+            exit 0
+          fi
+          # From here a failure stops the deploy: publishing without /pulse
+          # would take down the copy that is live now.
+          gh api "$asset_url" -H "Accept: application/octet-stream" > pulse-web.tar.gz
+          mkdir -p out/pulse
+          tar -xzf pulse-web.tar.gz -C out/pulse
+          rm pulse-web.tar.gz
+          test -f out/pulse/index.html
+          grep -q '<base href="/RohanDey/pulse/">' out/pulse/index.html || {
+            echo "::error::The Pulse bundle was not built for /RohanDey/pulse/."
+            exit 1
+          }
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
