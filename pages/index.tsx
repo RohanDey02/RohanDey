@@ -5,6 +5,7 @@ import Navbar, { SectionId } from "../components/Navbar";
 import Experience from "../components/Experience";
 import OpenSource from "../components/OpenSource";
 import Projects from "../components/Projects";
+import PaletteSwitcher from "../components/PaletteSwitcher";
 
 const sectionIds: SectionId[] = ["experience", "open-source", "projects"];
 
@@ -130,6 +131,7 @@ export default function Home() {
       />
 
       <Navbar activeSection={activeSection} onNavigate={setActiveSection} />
+      <PaletteSwitcher />
 
       <main>
         <Hero />

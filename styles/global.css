@@ -4,6 +4,7 @@
 
 @import './../components/Navbar/navbar.module.css';
 @import './../components/Experience/styles.css';
+@import './../components/PaletteSwitcher/styles.css';
 
 @layer base {
   :root {
@@ -22,6 +23,24 @@
     --text-soft: #a6a3c9;
     --chip-ink: #e2dcff;
     --line: rgba(255, 255, 255, 0.08);
+  }
+
+  :root[data-palette="ocean"] {
+    --a1: #5cd6ff;
+    --a2: #6cf7c8;
+    --a3: #7b8fff;
+    --a1-rgb: 92, 214, 255;
+    --a2-rgb: 108, 247, 200;
+    --a3-rgb: 123, 143, 255;
+  }
+
+  :root[data-palette="ember"] {
+    --a1: #ffb057;
+    --a2: #ff6b8b;
+    --a3: #c77dff;
+    --a1-rgb: 255, 176, 87;
+    --a2-rgb: 255, 107, 139;
+    --a3-rgb: 199, 125, 255;
   }
 
   html,
