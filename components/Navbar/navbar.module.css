@@ -1,34 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.site-header {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
 
-@layer components {
-    .navbar-link {
-        @apply w-full flex items-center py-3 text-slate-300 hover:text-cyan-100 transition;
-        background: transparent;
-        border: 0;
-        text-align: left;
-        cursor: pointer;
-        font-weight: 600;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        font-size: 0.82rem;
-    }
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--line);
+    font-size: 14px;
+}
 
-    .navbar-bullet {
-        @apply mr-4 h-0.5 w-8 transition-all group-hover:w-14 group-focus-visible:w-14 motion-reduce:transition-none;
-        background: linear-gradient(90deg, rgba(153, 187, 255, 0.6), rgba(92, 214, 255, 0.8));
-        border-radius: 999px;
-        box-shadow: 0 0 10px rgba(92, 214, 255, 0.45);
-    }
+.navbar-link {
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--text-soft);
+    transition: color 150ms ease, background-color 150ms ease;
+}
 
-    .navbar-link-active {
-        @apply text-cyan-100;
-    }
+.navbar-link:hover {
+    color: var(--text-main);
+}
 
-    .navbar-link-active .navbar-bullet {
-        width: 4rem;
-        background: linear-gradient(90deg, rgba(108, 247, 200, 1), rgba(92, 214, 255, 1));
-        box-shadow: 0 0 12px rgba(108, 247, 200, 0.65);
-    }
+.navbar-link-active {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
 }

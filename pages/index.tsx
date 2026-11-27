@@ -1,38 +1,20 @@
-import { useEffect, useRef, useState } from "react";
-import LeftHeading from "../components/LeftHeading"
-import Contact from "../components/Contact"
-import Navbar from "../components/Navbar"
+import { useEffect, useState } from "react";
+import Hero from "../components/Hero";
+import Contact from "../components/Contact";
+import Navbar, { SectionId } from "../components/Navbar";
 import Experience from "../components/Experience";
 import OpenSource from "../components/OpenSource";
 import Projects from "../components/Projects";
 
-type SectionId = "experience" | "open-source" | "projects";
+const sectionIds: SectionId[] = ["experience", "open-source", "projects"];
 
 export default function Home() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const experienceRef = useRef<HTMLDivElement>(null);
-  const openSourceRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
-
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mousePos, setMousePos] = useState({ x: -200, y: -200 });
+  const [cursorVisible, setCursorVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState<SectionId>("experience");
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
   const [loaderPhase, setLoaderPhase] = useState<"visible" | "closing" | "hidden">("visible");
-
-  const sectionMap: Record<SectionId, React.RefObject<HTMLDivElement | null>> = {
-    "experience": experienceRef,
-    "open-source": openSourceRef,
-    "projects": projectRef,
-  };
-
-  const handleNavigate = (id: SectionId) => {
-    setActiveSection(id);
-    const target = sectionMap[id].current;
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   useEffect(() => {
     const closeLoaderTimer = window.setTimeout(() => {
@@ -52,48 +34,38 @@ export default function Home() {
   useEffect(() => {
     const updateMousePos = (event: MouseEvent) => {
       setMousePos({ x: event.clientX, y: event.clientY });
+      setCursorVisible(true);
     };
+
+    const hideCursor = () => setCursorVisible(false);
 
     const updateHoverState = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
-      if (!target) {
-        setIsHoveringInteractive(false);
-        return;
-      }
-
-      const interactive = target.closest("a, button, input, textarea, select, label, [role='button']");
+      const interactive = target?.closest("a, button, input, textarea, select, label, [role='button']");
       setIsHoveringInteractive(Boolean(interactive));
     };
 
     const updateScrollProgress = () => {
       const doc = document.documentElement;
       const scrollable = doc.scrollHeight - doc.clientHeight;
-      if (scrollable <= 0) {
-        setScrollProgress(0);
-        return;
-      }
-      setScrollProgress(window.scrollY / scrollable);
+      setScrollProgress(scrollable > 0 ? window.scrollY / scrollable : 0);
     };
 
     window.addEventListener("mousemove", updateMousePos);
     window.addEventListener("mouseover", updateHoverState);
+    document.documentElement.addEventListener("mouseleave", hideCursor);
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     updateScrollProgress();
 
     return () => {
       window.removeEventListener("mousemove", updateMousePos);
       window.removeEventListener("mouseover", updateHoverState);
+      document.documentElement.removeEventListener("mouseleave", hideCursor);
       window.removeEventListener("scroll", updateScrollProgress);
     };
   }, []);
 
   useEffect(() => {
-    const refs: { id: SectionId; ref: React.RefObject<HTMLDivElement | null> }[] = [
-      { id: "experience", ref: experienceRef },
-      { id: "open-source", ref: openSourceRef },
-      { id: "projects", ref: projectRef },
-    ];
-
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -110,9 +82,10 @@ export default function Home() {
       { threshold: [0.2, 0.4, 0.6], rootMargin: "-10% 0px -45% 0px" }
     );
 
-    refs.forEach(({ ref }) => {
-      if (ref.current) {
-        observer.observe(ref.current);
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        observer.observe(el);
       }
     });
 
@@ -121,7 +94,6 @@ export default function Home() {
 
   return (
     <div
-      ref={wrapperRef}
       className={`site-shell ${loaderPhase !== "hidden" ? "site-shell-loading" : ""}`}
       style={{
         ["--mouse-x" as string]: `${mousePos.x}px`,
@@ -132,7 +104,7 @@ export default function Home() {
         <div className={`intro-loader ${loaderPhase === "closing" ? "intro-loader-exit" : ""}`} role="status" aria-label="Loading portfolio">
           <div className="intro-loader-content">
             <p className="intro-loader-tag">Initializing Portfolio</p>
-            <h1 className="intro-loader-title">Rohan Dey</h1>
+            <p className="intro-loader-title">Rohan Dey</p>
             <div className="intro-loader-bars" aria-hidden="true">
               <span className="intro-loader-bar" />
               <span className="intro-loader-bar" />
@@ -142,40 +114,34 @@ export default function Home() {
         </div>
       )}
 
-      <div className="scroll-progress" style={{ transform: `scaleX(${Math.min(1, Math.max(0, scrollProgress))})` }} />
+      <div aria-hidden="true" className="scroll-progress" style={{ transform: `scaleX(${Math.min(1, Math.max(0, scrollProgress))})` }} />
       <div className="aurora-layer" aria-hidden="true" />
       <div className="noise-layer" aria-hidden="true" />
       <div className="spotlight-layer" aria-hidden="true" />
       <div
         aria-hidden="true"
         className={`custom-cursor-ring ${isHoveringInteractive ? "custom-cursor-ring-active" : ""}`}
-        style={{
-          left: `${mousePos.x}px`,
-          top: `${mousePos.y}px`,
-        }}
+        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px`, opacity: cursorVisible ? 1 : 0 }}
       />
       <div
         aria-hidden="true"
-        className={`custom-cursor-dot ${isHoveringInteractive ? "custom-cursor-dot-active" : ""}`}
-        style={{
-          left: `${mousePos.x}px`,
-          top: `${mousePos.y}px`,
-        }}
+        className="custom-cursor-dot"
+        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px`, opacity: cursorVisible ? 1 : 0 }}
       />
 
-      <div className="layout-grid">
-        <aside className="left-column">
-          <LeftHeading />
-          <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
-        </aside>
+      <Navbar activeSection={activeSection} onNavigate={setActiveSection} />
 
-        <main className="main-div-right right-column">
-          <Contact />
-          <Experience refProp={experienceRef} sectionId="experience" />
-          <OpenSource refProp={openSourceRef} sectionId="open-source" />
-          <Projects refProp={projectRef} sectionId="projects" />
-        </main>
-      </div>
+      <main>
+        <Hero />
+        <Contact />
+        <Experience sectionId="experience" />
+        <OpenSource sectionId="open-source" />
+        <Projects sectionId="projects" />
+      </main>
+
+      <footer className="wrap pb-12">
+        <p className="border-t border-white/[.08] pt-7 text-sm">© {new Date().getFullYear()} Rohan Dey</p>
+      </footer>
     </div>
   );
 }
