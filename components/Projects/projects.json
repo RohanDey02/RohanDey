@@ -1,14 +1,26 @@
 [
     {
+        "year": "2026",
+        "project": "VaultMesh",
+        "projectUrl": "https://github.com/RohanDey02/vaultmesh",
+        "description": "A desktop app that pools Google Drive, Dropbox, OneDrive and a home NAS into one drive. Large files are split across providers and verified against a SHA-256 hash when they download.",
+        "technologies": [
+            "Electron",
+            "React",
+            "TypeScript",
+            "Fastify",
+            "PostgreSQL"
+        ]
+    },
+    {
         "year": "2025",
         "project": "UML Transcoder",
         "projectUrl": "https://github.com/RohanDey02/uml-transcoder",
-        "description": "Built an AI-powered full-stack tool that converts between UML diagrams and code with a visual editor, custom .RohanUML import/export support, and multi-language generation flows.",
+        "description": "Converts between UML diagrams and code with AI, using a visual editor and its own .RohanUML file format.",
         "technologies": [
             "Angular",
             "TypeScript",
             "Node.js",
-            "Express",
             "Hugging Face",
             "JointJS"
         ]
@@ -17,10 +29,10 @@
         "year": "2023",
         "project": "PintOS",
         "projectUrl": "https://web.stanford.edu/class/cs140/projects/pintos/pintos_1.html",
-        "description": "Developed an operating system in C, implementing thread scheduling, virtual memory, and a file system.",
+        "description": "An operating system in C with thread scheduling, virtual memory and a file system.",
         "technologies": [
-            "Assembly",
             "C",
+            "Assembly",
             "Docker"
         ]
     },
@@ -28,26 +40,25 @@
         "year": "2021",
         "project": "Pawsup",
         "projectUrl": "https://github.com/RohanDey02/pawsup-application",
-        "description": "Communicated with Pawsup startup to create an app based on their requirements using the MERN stack while following agile development methodologies.",
+        "description": "A MERN app built to the Pawsup startup’s requirements, in agile sprints with the client.",
         "technologies": [
-            "Docker",
-            "Express",
-            "Heroku",
-            "MongoDB",
+            "React",
             "Node.js",
-            "React"
+            "Express",
+            "MongoDB",
+            "Heroku"
         ]
     },
     {
         "year": "2021",
         "project": "Medical Supply Chains",
         "projectUrl": "https://github.com/RohanDey02/medical-supply-chains",
-        "description": "Developed a fair and efficient algorithm in object-oriented Python with Plotly and Tkinter to redistribute the vaccines between countries to ensure each country can fully immunize their populations.",
+        "description": "A Python algorithm that redistributes vaccines between countries so each one can fully immunize its population.",
         "technologies": [
-            "BS4",
             "Python",
             "Pandas",
-            "Plotly"
+            "Plotly",
+            "BS4"
         ]
     }
 ]
