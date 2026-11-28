@@ -1,56 +1,59 @@
-.exp-card {
-    color: rgb(226 232 240);
+/* Experience timeline: date, rail, card. */
+.tl {
     display: grid;
-    grid-template-columns: 150px minmax(0, 1fr);
-    gap: 1rem;
-    margin-top: 0.7rem;
-    padding: 0.9rem;
+    grid-template-columns: 150px 28px minmax(0, 1fr);
+    gap: 0 16px;
 }
 
-.exp-card-single {
-    grid-template-columns: minmax(0, 1fr);
+.tl-when {
+    margin: 26px 0 8px;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
 }
 
-.exp-card-single .exp-card-right {
-    grid-column: 1 / -1;
+.tl-rail {
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
-.exp-card-left {
-    color: rgb(155 172 198);
-    margin: 0.25rem 0 0.5rem 0;
-    font-weight: 700;
+.tl-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--a1), var(--a2), var(--a3));
+    opacity: 0.35;
 }
 
-.exp-card-right {
-    display: block;
-    width: 100%;
-    flex: 1 1 auto;
-    min-width: 0;
+.tl-dot {
+    position: relative;
+    margin-top: 30px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--bg-deep), 0 0 16px var(--a2);
 }
 
-.exp-card-right h3 {
-    font-weight: 650;
-    margin: 0;
-    font-size: 1.08rem;
-    line-height: 1.35;
+.tl-body {
+    padding: 10px 0 14px;
 }
 
-.exp-card-right ul {
-    margin: 0;
-    padding: 0;
-}
-
-.exp-card-right ul li {
-    list-style-type: none;
-}
-
-@media (max-width: 760px) {
-    .exp-card {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
+@media (max-width: 820px) {
+    .tl {
+        grid-template-columns: 20px minmax(0, 1fr);
     }
 
-    .exp-card-left {
-        margin-bottom: 0;
+    .tl-when {
+        grid-column: 2;
+    }
+
+    .tl-rail {
+        grid-row: 1 / span 2;
+        grid-column: 1;
+    }
+
+    .tl-body {
+        grid-column: 2;
     }
 }

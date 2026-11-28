@@ -1,4 +1,5 @@
 type Contribution = {
+    label: string;
     description: string;
     contributionUrl: string;
 }

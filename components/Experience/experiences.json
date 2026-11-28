@@ -1,14 +1,14 @@
 [
     {
-        "startYear": "June 2024",
-        "endYear": "Present",
+        "startYear": "Jun 2024",
+        "endYear": "Now",
         "role": "Software Developer",
         "company": "Electric Mind",
         "companyUrl": "https://www.electricmind.com/",
-        "description": "Provided software consulting services, focusing on enhancing application performance and improving solutions. Now lead initiatives, architect solutions, and mentor junior team members.",
+        "description": "Software consulting focused on application performance. I now lead initiatives, architect solutions and mentor junior developers.",
         "previousRole": {
             "title": "Junior Software Developer",
-            "period": "June 2024 – June 2025"
+            "period": "Jun 2024 – Jun 2025"
         },
         "technologies": [
             "Java",
@@ -19,17 +19,16 @@
             "Angular",
             "Kubernetes",
             "Terraform",
-            "AWS",
-            "Git"
+            "AWS"
         ]
     },
     {
-        "startYear": "Sept 2023",
+        "startYear": "Sep 2023",
         "endYear": "Feb 2024",
         "role": "Software Developer Intern",
         "company": "GBatteries",
         "companyUrl": "https://www.gbatteries.com/",
-        "description": "Developed charging analytics software, safeguarded battery test data, and orchestrated various Kubernetes and AWS tasks.",
+        "description": "Built charging analytics software, secured battery test data and ran Kubernetes and AWS work.",
         "technologies": [
             "Python",
             "Flask",
@@ -38,45 +37,38 @@
             "SQL",
             "Docker",
             "Kubernetes",
-            "Terraform",
-            "AWS",
-            "Git"
+            "AWS"
         ]
     },
     {
-        "startYear": "Jan 2023",
+        "startYear": "Jan",
         "endYear": "Apr 2023",
         "role": "Full Stack Developer Intern",
         "company": "KPMG",
         "companyUrl": "https://kpmg.com/ca/en/home.html",
-        "description": "Optimized the job classification tool and revamped the appearance of internal tools to provide an improved UI/UX.",
+        "description": "Optimized the job classification tool and redesigned the interface of internal tools.",
         "technologies": [
             "Python",
             "Flask",
             "React",
             "Node.js",
-            "JavaScript",
-            "Tailwind CSS",
-            "Git"
+            "Tailwind CSS"
         ]
     },
     {
-        "startYear": "May 2022",
+        "startYear": "May",
         "endYear": "Aug 2022",
         "role": "Software Developer Intern",
         "company": "BLiNQ Networks",
         "companyUrl": "https://blinqnetworks.com/",
-        "description": "Built an autoscaling simulator and completed assigned tickets on Jira by constructing API endpoints using various technologies.",
+        "description": "Built an autoscaling simulator and API endpoints for Jira tickets across the stack.",
         "technologies": [
             "Java",
             "Kubernetes",
             "Docker",
-            "Bash",
             "Node.js",
             "MongoDB",
-            "Elasticsearch",
-            "CI/CD",
-            "Git"
+            "Elasticsearch"
         ]
     }
 ]

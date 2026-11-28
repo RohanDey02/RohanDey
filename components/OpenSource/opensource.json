@@ -1,15 +1,16 @@
 [
     {
-        "project": "LangChain AI",
+        "project": "LangChain",
         "projectUrl": "https://github.com/langchain-ai/langchain",
-        "description": "Contributed to LangChain AI, a framework for developing applications powered by large language models (LLM).",
+        "description": "Added a Pandas DataFrame output parser to LangChain, the framework for building apps on large language models.",
         "technologies": [
             "Python",
             "Pandas"
         ],
         "contributions": [
             {
-                "description": "Created a Pandas DataFrame output parser, boosting LangChain’s compatibility with 50% of Python products.",
+                "label": "Merged PR #13257",
+                "description": "Added a Pandas DataFrame output parser to LangChain, the framework for building apps on large language models.",
                 "contributionUrl": "https://github.com/langchain-ai/langchain/pull/13257"
             }
         ]

@@ -1,39 +1,30 @@
 import React from "react";
 import projectData from "./projects.json";
 import ProjectEntry from "../../types/ProjectEntry";
+import TechChips from "../TechChips";
 
 const ProjectEntryCard: React.FC<ProjectEntry> = ({ year, project, projectUrl, description, technologies }) => {
     return (
-        <article className="exp-card showcase-card glass-hover">
-            <div className="exp-card-left text-xs uppercase tracking-wide text-slate-500">
-                <p>{year}</p>
+        <a className="card flex flex-col" href={projectUrl} target="_blank" rel="noreferrer">
+            <div className="flex items-center justify-between gap-3">
+                <span className="text-sm text-accent-2 tabular-nums">{year}</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
             </div>
-            <div className="exp-card-right">
-                <a className="hover:text-cyan-200 transition" href={projectUrl} target="_blank" rel="noreferrer">
-                    <h3>{project}</h3>
-                </a>
-                <p className="text-slate-300 mt-2 text-sm leading-normal">{description}</p>
-                <ul className="mt-2 flex flex-wrap" aria-label="technologies">
-                    {technologies.map((tech, index) => (
-                        <li className="text-slate-400 mr-1.5 mt-2" key={index}>
-                            <div className="flex items-center rounded-full border border-cyan-300/35 bg-cyan-300/10 px-3 py-1 text-xs font-semibold leading-5 text-cyan-200">
-                                {tech}
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </article>
-    )
-}
+            <h3 className="card-title mt-2.5 text-[21px]">{project}</h3>
+            <p className="mt-2 flex-grow">{description}</p>
+            <TechChips technologies={technologies} className="mt-4" />
+        </a>
+    );
+};
 
-const Projects = (props: { refProp: React.LegacyRef<HTMLDivElement> | undefined; sectionId: string; }) => {
-    return <section className="section-shell" id={props.sectionId} data-section={props.sectionId}>
-        <p className="section-tag">Builds</p>
-        <h2 className="section-heading mt-1" ref={props.refProp}>Projects</h2>
-        <div className="experience-list">
-            {projectData.map((experience: ProjectEntry, index: number) => (
-                <ProjectEntryCard key={index} {...experience} />
+const Projects = (props: { sectionId: string; }) => {
+    return <section className="wrap section pb-24" id={props.sectionId} data-section={props.sectionId} aria-labelledby="proj-h">
+        <h2 id="proj-h" className="section-heading mb-7">Projects</h2>
+        <div className="grid2">
+            {projectData.map((entry: ProjectEntry, index: number) => (
+                <ProjectEntryCard key={index} {...entry} />
             ))}
         </div>
     </section>;
